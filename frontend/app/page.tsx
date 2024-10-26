@@ -1,6 +1,30 @@
+"use client";
+
 import Image from "next/image";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { useEffect } from "react";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAq-hWiu_lqZXXfUsKwZAwetffBSx7-wwk",
+  authDomain: "wealth-sync-dev.firebaseapp.com",
+  projectId: "wealth-sync-dev",
+  storageBucket: "wealth-sync-dev.appspot.com",
+  messagingSenderId: "413526370506",
+  appId: "1:413526370506:web:6f62b0fe7c9dc77bd5ec33",
+  measurementId: "G-HGYLZM1BJS",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 export default function Home() {
+  useEffect(() => {
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  }, []);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
